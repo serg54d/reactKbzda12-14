@@ -53,3 +53,67 @@ export const SimpleExample = () => {
 	)
 }
 
+export const SetTimeoutExample = () => {
+
+
+	
+
+	const [fake, setFake] = useState(1);
+	const [counter, setCounter] = useState(1);
+	const [seconds, setSeconds] = useState(0)
+	const [minutes, setMinutes] = useState(0)
+	const [hours, setHours] = useState(0)
+	console.log('SetTimeoutExample');
+
+	
+
+	useEffect(() => {
+		// setTimeout(() => {
+		// 	// debugger
+		// 	console.log('setTimeout ');
+
+		// 	document.title = counter.toString()
+		// }, 1000)
+
+		// setInterval(() => {
+		// 	setCounter((state) => state + 1)
+		// }, 1000)
+
+		// setInterval(() => {
+		// 	setSeconds(seconds)
+		// }, 1000)
+
+		// setInterval(() => {
+		// 	setMinutes(minutes)
+		// }, 60000)
+
+		// setInterval(() => {
+		// 	setMinutes(minutes)
+		// }, 3600000)
+
+
+		setInterval(() => {
+			const dateTime = new Date()
+			const hour = dateTime.getHours()
+			const minute = dateTime.getMinutes()
+			const second = dateTime.getSeconds()
+			setSeconds(second);
+			setMinutes(minute);
+			setHours(hour);
+		}, 1000);
+
+	}, [])
+
+
+
+	return (
+		<div>
+			{/* Hello, counter: {counter} fake: {fake} */}
+			{hours}:{minutes}:{seconds}
+			{/* <button onClick={() => setFake(fake + 1)}>fake+</button>
+			<button onClick={() => setCounter(counter + 1)}>counter+</button> */}
+		</div>
+	)
+}
+
+
